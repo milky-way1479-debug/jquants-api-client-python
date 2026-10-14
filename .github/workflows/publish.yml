@@ -1,11 +1,13 @@
 name: Publish PyPI Package
 
 on:
-  release:
-    types: [ created ]
+  # Disabled in this fork: release events must not publish packages.
+  workflow_dispatch:
 
 jobs:
   publish-pypi:
+    # Disabled in this fork: manually dispatched runs also cannot publish.
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
